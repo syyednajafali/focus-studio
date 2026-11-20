@@ -32,6 +32,7 @@ $(window).on("load", function () {
         var gridRows = $this.data("grid") || 1;
         var cursorType = $this.data("cursor") ?? false;
         var loop = $this.data("loop") ?? false;
+        var rewind = $this.data("rewind") ?? false;
         var loopMd = $this.data("loop-md") ?? false;
         var effect = $this.data("effect") || "slide";
         var atPlay = $this.data("auto"); // True || False
@@ -51,6 +52,7 @@ $(window).on("load", function () {
             slidesPerGroup: perGroup,
             grabCursor: cursorType,
             loop: loop,
+            rewind: rewind,
             effect: effect,
             initialSlide: init,
             slideToClickedSlide: clickSlide,
@@ -249,7 +251,9 @@ window.onload = function () {
                 const playback = video.play();
                 if (playback) {
                     playback.catch((error) => {
-                        console.error("Selected work video could not be played:", error);
+                        if (error.name !== "AbortError") {
+                            console.error("Selected work video could not be played:", error);
+                        }
                     });
                 }
                 advanceTimer = window.setTimeout(() => {
@@ -261,6 +265,7 @@ window.onload = function () {
                 playAndScheduleNext();
             } else {
                 video.addEventListener("loadedmetadata", playAndScheduleNext, { once: true });
+                video.load();
             }
         };
 

@@ -5873,13 +5873,17 @@ button.animate-btn::after,
   .section-feature {
     margin-top: 20px;
     padding-top: 0;
+    padding-bottom: 0;
+  }
+  .section-feature .feature-services-slider {
+    padding-bottom: 0;
   }
   .section-feature .feature-services-controls {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 18px;
-    margin-top: 20px;
+    margin-top: 8px;
   }
   .section-feature .feature-services-controls .tf-sw-pagination {
     display: inline-flex;
