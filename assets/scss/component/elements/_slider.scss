@@ -133,6 +133,10 @@
 }
 
 .swiper-testimonial {
+    .group-btn-slider .tf-sw-pagination {
+        display: none;
+    }
+
     .swiper-slide {
         .testimonial-v01 {
             position: relative;

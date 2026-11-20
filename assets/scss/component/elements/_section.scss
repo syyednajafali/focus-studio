@@ -619,6 +619,9 @@
     }
 
     @include res(md) {
+        margin-top: 0;
+        padding-top: 0;
+
         .davies-video {
             width: calc(100% + 30px);
             max-height: none;
@@ -1056,6 +1059,11 @@
 .section-pricing {
     position: relative;
 
+    @include res(md) {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
     .bg-img {
         position: absolute;
         left: 0;
@@ -1261,7 +1269,7 @@
 
 
     .group-btn-slider {
-        margin-top: 24px;
+        margin-top: 0;
     }
 
     .content-wrap-1 {
@@ -1277,12 +1285,8 @@
         z-index: 2;
         padding-bottom: 20px;
 
-        &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-            z-index: 0;
+        .row {
+            align-items: center;
         }
 
         .col-right {
@@ -1313,16 +1317,12 @@
         .group-btn-slider {
             gap: 40px;
         }
-
-        .content-wrap-2 {
-
-            .col-right {
-                transform: translateY(-50%);
-            }
-        }
     }
 
     @include res(md) {
+        margin-top: 20px;
+        padding-top: 0;
+
         .group-btn-slider {
             justify-content: flex-start;
             margin: 0;
@@ -1405,6 +1405,8 @@
 
 .work-tag {
     position: relative;
+    display: flex;
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -1485,6 +1487,11 @@
 
 .section-tech-stack {
     padding-top: 60px;
+
+    @include res(md) {
+        margin-top: 20px;
+        padding-top: 0;
+    }
 }
 
 .section-tech-stack-v2 {
@@ -1512,10 +1519,20 @@
     @include res(xxl, min) {
         padding-top: 180px;
     }
+
+    @include res(md) {
+        margin-top: 20px;
+        padding-top: 0;
+    }
 }
 
 .section-our-work {
     overflow: hidden;
+
+    @include res(md) {
+        margin-top: 20px;
+        padding-top: 0;
+    }
 
     .our-work-header {
         display: flex;
@@ -1716,6 +1733,10 @@
 .section-testimonial {
     position: relative;
 
+    @include res(md) {
+        margin-top: 0;
+        padding-top: 0;
+    }
 
     .bg-img-item {
         position: absolute;
