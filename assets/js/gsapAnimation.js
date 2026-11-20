@@ -709,15 +709,8 @@
     });
 
     $(window).on("load", function () {
-        const hash = window.location.hash;
-        if (hash && $(hash).length) {
-            setTimeout(() => {
-                gsap.to(window, {
-                    duration: 1,
-                    scrollTo: hash,
-                    ease: "power2.out",
-                });
-            }, 800);
+        if (window.location.hash) {
+            window.scrollTo(0, 0);
         }
     });
 })(jQuery);

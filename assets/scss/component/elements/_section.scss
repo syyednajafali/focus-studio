@@ -532,6 +532,18 @@
                 max-width: 65%;
                 height: auto;
                 mix-blend-mode: screen;
+                -webkit-mask-image:
+                    radial-gradient(ellipse at top left, transparent 0, #000 40%),
+                    radial-gradient(ellipse at top right, transparent 0, #000 40%),
+                    radial-gradient(ellipse at bottom left, transparent 0, #000 40%),
+                    radial-gradient(ellipse at bottom right, transparent 0, #000 40%);
+                -webkit-mask-composite: source-in;
+                mask-image:
+                    radial-gradient(ellipse at top left, transparent 0, #000 40%),
+                    radial-gradient(ellipse at top right, transparent 0, #000 40%),
+                    radial-gradient(ellipse at bottom left, transparent 0, #000 40%),
+                    radial-gradient(ellipse at bottom right, transparent 0, #000 40%);
+                mask-composite: intersect;
             }
         }
     }
@@ -1608,16 +1620,6 @@
     .our-work-video:focus-visible .our-work-play {
         background: #ff0033;
         transform: translate(-50%, -50%) scale(1.08);
-    }
-
-    .our-work-watch {
-        position: absolute;
-        z-index: 1;
-        right: 18px;
-        bottom: 16px;
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.1em;
     }
 
     .our-work-label {
