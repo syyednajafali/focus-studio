@@ -126,8 +126,9 @@
         <div class="section-hero-v1">
             <div class="overlay"></div>
             <div class="bg-video">
-                <video muted autoplay loop playsinline preload="auto">
-                    <source src="assets/images/video/corridor.mp4" type="video/mp4">
+                <video id="heroBackgroundVideo" muted autoplay loop playsinline preload="metadata"
+                    poster="assets/images/corridor-poster.svg" decoding="async"
+                    data-src="assets/images/video/corridor.mp4">
                 </video>
                 <div class="video-overlay"></div>
                 <div class="video-overlay-2"></div>
@@ -1877,6 +1878,20 @@
             heroVideoPlayer.pause();
             heroVideoPlayer.currentTime = 0;
         });
+
+        const heroBackgroundVideo = document.getElementById("heroBackgroundVideo");
+        const loadHeroBackgroundVideo = () => {
+            if (!heroBackgroundVideo || heroBackgroundVideo.src) return;
+            heroBackgroundVideo.src = heroBackgroundVideo.dataset.src;
+            heroBackgroundVideo.load();
+        };
+        if ("requestIdleCallback" in window) {
+            requestIdleCallback(loadHeroBackgroundVideo, { timeout: 1200 });
+        } else {
+            window.addEventListener("load", () => {
+                window.setTimeout(loadHeroBackgroundVideo, 300);
+            }, { once: true });
+        }
     </script>
 </body>
 
